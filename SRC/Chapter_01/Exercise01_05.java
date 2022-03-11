@@ -10,10 +10,6 @@
 
 package exercise01_05;
 
-/**
- *
- * Created by Riyan Rattan
- */
 public class Exercise01_05 {
 
     public static void main(String[] args) {
