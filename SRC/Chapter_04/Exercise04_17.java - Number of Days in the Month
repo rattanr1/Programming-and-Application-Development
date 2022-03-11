@@ -1,9 +1,16 @@
-package exercise04_17;
+/*
+(Days of a month) Write a program that prompts the user to enter a year and the
+first three letters of a month name (with the first letter in uppercase) and displays
+the number of days in the month.
 
-/**
- *
+If the input for month is incorrect, display a 
+message that "month" is not a correct month name.
+
  * @Riyan Rattan
  */
+
+
+package exercise04_17;
 
 //Set up for promt user
 import java.util.Scanner;
