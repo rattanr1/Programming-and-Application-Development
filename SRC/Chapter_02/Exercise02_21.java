@@ -47,7 +47,7 @@ import java.util.Scanner;
             investmentAmount * Math.pow(1 + monthlyInterestRate, years * 12);
         
         
-        // Display future investment value
+        // Display future investment value to round two decimal placees
         System.out.println("Accumulated value is $" + 
                 (double) Math.round (futureInvestmentValue * 100) / 100.0);
         
