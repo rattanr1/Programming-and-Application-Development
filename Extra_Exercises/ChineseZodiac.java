@@ -1,0 +1,35 @@
+/*
+The Chinese Zodiac sign is based on a 12-year cycle for a given year. 
+What is yours? Enter your year to find out!
+
+@Riyan Rattan
+ */
+
+package chinesezodiac;
+
+import java.util.Scanner;
+
+public class ChineseZodiac {
+  public static void main(String[] args) {
+   Scanner input = new Scanner(System.in);
+
+ System.out.print("Enter a year: ");
+    int year = input.nextInt();
+
+switch (year % 12) {
+    case 0: System.out.println("\n" + "monkey"); break;
+    case 1: System.out.println("\n" + "rooster"); break;
+    case 2: System.out.println("\n" + "dog"); break;
+    case 3: System.out.println("\n" + "pig"); break;
+    case 4: System.out.println("\n" + "rat"); break;
+    case 5: System.out.println("\n" + "ox"); break;
+    case 6: System.out.println("\n" + "tiger"); break;
+    case 7: System.out.println("\n" + "rabbit"); break;
+    case 8: System.out.println("\n" + "dragon"); break;
+    case 9: System.out.println("\n" + "snake"); break;
+    case 10: System.out.println("\n" + "horse"); break;
+    case 11: System.out.println("\n" + "sheep");
+        
+   }
+  }
+ }
