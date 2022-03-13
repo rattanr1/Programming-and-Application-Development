@@ -1,5 +1,5 @@
 /*
- Exercise 2.8 (Show Current Time):
+(Show Current Time):
 
 Revise the Java program so that it prompts the user to enter the
 time zone offset to GMT and displays the time in the specified time zone.
