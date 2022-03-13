@@ -1,5 +1,5 @@
 /*
-3.8 Case Study: Computing Body Mass Index
+Computing Body Mass Index
 
 You can use nested if statements to write a program that interprets body mass index.
 Body mass index (BMI) is a measure of health based on height and weight. It can be calculated
