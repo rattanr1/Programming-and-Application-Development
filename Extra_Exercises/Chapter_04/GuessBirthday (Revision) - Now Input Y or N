@@ -11,7 +11,7 @@ Each question asks whether the day is in one of the five sets of numbers.
 The input of user don't have to be case sensitive. 
 And will even take full words or close resemblence!
 
-**Now will ask to input Y or N***
+**Now will ask to input Y or N or something close***
 
 The output should be the correct day of birth!
 
