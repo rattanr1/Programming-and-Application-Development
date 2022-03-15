@@ -1,0 +1,76 @@
+/*
+Exercise 4.18 (Student Major and Status):
+
+Write a program that prompts the user to enter two characters (letter and number)
+and displays the major and status represented in those characters. 
+
+The first character indicates the major (M, C, I)
+
+And the second is a number character (1, 2, 3, or 4), s
+which indicates whether a student is a 
+Freshman (1), Sophomore (2), Junior (3), or Senior (4). 
+
+Suppose that the following characters are used to denote the majors:
+M: Mathematics
+C: Computer Science
+I: Information Technology
+
+By: Riyan Rattan
+ */
+
+package studentmajorstatus;
+
+import java.util.Scanner;
+
+public class StudentMajorStatus {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+System.out.print("Enter two characters (Like M1): ");  //Not case sensitive, but have to be in corect order
+        String s = input.next();
+        input.close();
+
+        String major = getMajor(s.charAt(0));
+        String status = getSchoolYear(s.charAt(1));
+
+  if (major == null || status == null) {   //conditions if input is invalid
+            System.out.println("\n" + "Invalid input.");
+            System.exit(0);
+        }
+
+        System.out.println("\n" + major + " " + status);  //otherwise displays
+    }
+
+//Sets cases for each number declared
+    public static String getSchoolYear(char schoolYear) {
+
+        switch (schoolYear) {
+            case '1': return "Freshman";
+            case '2': return "Sophomore";
+            case '3': return "Junior";
+            case '4': return "Senior";
+                default: return null;
+//For fun, can add case 5 for "Gratuate" if you wish to experiment before null
+        }
+    }
+    
+//Sets cases for each letter declared
+    public static String getMajor(char major) {
+
+        major = Character.toUpperCase(major);
+        
+        switch (major) {
+            case 'M':
+                return "Mathematics";
+            case 'C':
+                return "Computer Science";
+            case 'I':
+                return "Information Technology";
+            default:
+                return null;
+        }             
+    }    
+}
+
+/*If want to add more majors for fun, just add another case for another letter 
+in the end of the program as directly above before "return null" */
