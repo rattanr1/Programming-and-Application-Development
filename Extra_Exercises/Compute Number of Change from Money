@@ -54,3 +54,18 @@ public class ComputeChange {
     }
     
 }
+
+
+/* 
+We can also use below to display results:
+
+System.out.println("Your amount " + amount + " consists of \n" +
+                "\t" + numberOfOneDollars + " dollars\n" +
+                "\t" + numberOfQuarters + " quarters\n" +
+                "\t" + numberOfDimes + " dimes\n" +
+                "\t" + numberOfNickels + " nickels\n" +
+                "\t" + numberOfPennies + " pennies");
+
+Note: "\t" means to to insert a new tab at this specific point in the text
+      "\n" means to insert a new line at this specific point in the text
+*/
