@@ -1,5 +1,5 @@
 /*
-Can It Guess Your Birth-Day??
+Can It Guess Your Birth-Day?? ---Revision!
 
 Strings are fundamental in programming. The ability to write programs using strings 
 is essential in learning Java programming. You will frequently use strings to write useful programs. 
@@ -8,7 +8,11 @@ You can find out the date of the month when someone was born by asking
 five questions! The program below will display this.
 
 Each question asks whether the day is in one of the five sets of numbers.
-The input of user don't have to be case sensitive.
+The input of user don't have to be case sensitive. 
+And will even take full words or close resemblence!
+
+**Now will ask to input Y or N***
+
 The output should be the correct day of birth!
 
 @Riyan Rattan
