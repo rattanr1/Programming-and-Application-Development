@@ -6,7 +6,7 @@ and displays the major and status represented in those characters.
 
 The first character indicates the major (M, C, I)
 
-And the second is a number character (1, 2, 3, or 4), s
+And the second is a number character (1, 2, 3, or 4),
 which indicates whether a student is a 
 Freshman (1), Sophomore (2), Junior (3), or Senior (4). 
 
