@@ -1,0 +1,203 @@
+/*
+Exercise 11.3(Subclasses of Account):
+
+In Programming Exercise 9.7, the Account class was defined to model a bank account. 
+
+An account has the properties account number, balance, annual interest rate, 
+and date created, and methods to deposit and withdraw funds. 
+
+Create two subclasses for checking and saving accounts. 
+
+A checking account has an overdraft limit, but a savings account cannot be overdrawn.
+
+Write a test program that creates objects of Account, SavingsAccount, and CheckingAccount 
+and invokes their toString() methods.
+
+Notes:
+    - One PUBLIC Class (Exercise11_03)
+Three default classes in order:
+    - Class Account
+    - Class SavingsAccount
+    - Class CheckingAccount
+ */
+
+
+package exercise11_03;
+
+import java.time.LocalDate;
+
+public class Exercise11_03 {
+
+    public static void main(String[] args) {
+        Account a1 = new CheckingAccount(123456, 5565, 2.4, 3000);
+
+        System.out.println("\nAccount 1 : " + a1);
+
+        a1.withdraw(7000);
+
+        System.out.println("Balance after withdrawing : $" + a1.getBalance());
+
+        Account a2 = new CheckingAccount(665456, 7786, 1.5, 4500);
+
+        System.out.println("\nAccount 2 : " + a2);
+
+        Account a3 = new SavingAccount(887763, 4887, 1.4);
+
+        System.out.println("\nAccount 3 : " + a3);
+
+        a3.withdraw(1200);
+
+        System.out.println("Balance after withdrawing : $" + a3.getBalance());
+
+        a3.withdraw(4000);
+
+        System.out.println("Balance after withdrawing : $" + a3.getBalance());
+
+    }
+
+}
+
+// Account Class with constructors and variables
+
+class Account {
+
+    // class variables
+
+    private int accountnum; // all class variables declared as private
+    private double balance;
+    private double annualintrestrate;
+    private String datecreated;
+
+    // constructors
+
+    Account() {
+        accountnum = 0;
+        balance = 0.0;
+        annualintrestrate = 0.0;
+        datecreated = LocalDate.now().toString();
+    }
+
+    Account(int accountnum, double balance, double annualintrestrate) { 
+                                                                        
+
+        this.accountnum = accountnum;
+        this.annualintrestrate = annualintrestrate;
+        this.balance = balance;
+        this.datecreated = LocalDate.now().toString(); // Instead of passing date to constructor we get the current date
+                                                       // when the Object is created and convert it to string
+
+    }
+
+    // Acceessors
+
+    public int getAccountnum() {
+        return accountnum;
+    }
+
+    public double getAnnualintrestrate() {
+        return annualintrestrate;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public String getDatecreated() {
+        return datecreated;
+    }
+
+    // Mutators
+
+    public void setAccountnum(int accountnum) {
+        this.accountnum = accountnum;
+    }
+
+    public void setAnnualintrestrate(double annualintrestrate) {
+        this.annualintrestrate = annualintrestrate;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public void setDatecreated(String datecreated) {
+        this.datecreated = datecreated;
+    }
+
+    // deposit method
+
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    // withdraw method
+
+    public void withdraw(double amount) {
+        // if amount is not sufficient
+        if (balance - amount < 0) {
+            System.out.println("Insufficient Balance");
+        } else {
+            balance -= amount;
+        }
+    }
+
+    // toString method that return details
+    public String toString() {
+        return ("\nAccount Number : " + accountnum + "\nAnnual Intrest Rate : " + annualintrestrate + "\nBalance : $ "
+                + balance + "\nDate Created : " + datecreated);
+    }
+}
+
+// CheckingAccount class that extends from Account class
+class CheckingAccount extends Account {
+    // class members
+
+    double overdraftlimit;
+
+    // constructors
+    public CheckingAccount(int accountnum, double balance, double annualintrestrate) { // constructor for default value
+                                                                                       // of overdraftlimit
+        super(accountnum, balance, annualintrestrate);
+        this.overdraftlimit = 2000.0;
+    }
+
+    public CheckingAccount(int accountnum, double balance, double annualintrestrate,
+            double overdraftlimit) {
+        super(accountnum, balance, annualintrestrate);
+        this.overdraftlimit = overdraftlimit;
+    }
+
+    // withdraw method
+    public void withdraw(double amount) {
+        // if withdraw amount is greater than overdraftlimit
+        if (getBalance() + overdraftlimit - amount < 0) {
+            System.out.println("Insufficient Balance , You have crossed overdraft limit.");
+        }
+        // else reduce amount and print if overdraft amount is used
+        else {
+            setBalance(getBalance() - amount);
+        }
+        if (getBalance() < 0) {
+            System.out.println("Overdrafted amount : " + Math.abs(getBalance()));
+        }
+    }
+
+    // updated toString method
+    public String toString() {
+        return super.toString() + "\nAccount Type : Checking \nOverDraft limit : " + overdraftlimit;
+    }
+}
+
+// SavingAccount class that extends/inherits Account
+class SavingAccount extends Account {
+
+    // constructor
+    public SavingAccount(int accountnum, double balance, double annualintrestrate) {
+        super(accountnum, balance, annualintrestrate);
+    }
+
+    // toString method
+    public String toString() {
+        return super.toString() + "\nAccount Type : Saving";
+    }
+}
