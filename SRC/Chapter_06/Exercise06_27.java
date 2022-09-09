@@ -1,0 +1,96 @@
+/*
+Exercise 6.27 (Emirp):
+
+An emirp (prime spelled backward) is a prime number that results in a 
+different prime when its decimal digits are reversed.
+
+                            or
+
+An emirp (prime spelled backward) is a nonpalindromic prime number whose 
+reversal is also a prime.
+
+For example, 17 is a prime and 71 is a prime, so 17 and 71 are emirps. 
+
+Write a program that displays the first 100 emirps. 
+Display 10 numbers per line, separated by exactly one space, as follows:
+
+        13  17  31  37  71  73  79  97  107 113
+        149 157 167 179 199 311 337 347 359 389
+        ...                                 3049
+
+First 100 Emirps have values between 13 and 3049.
+
+Note:
+A palindrome is a word, number, phrase, or other sequence of characters 
+which reads the same backward as forward, such as madam or racecar. 
+
+Created By: Riyan Rattan
+ */
+
+package exercise06_27;
+
+public class Exercise06_27 { 
+
+ public static void main(String[] args) {
+  System.out.println("The first 100 emirps are: \n");  
+  printEMIRPS(100);   //Need to print 100
+ }
+ 
+ public static void printEMIRPS(int numberOfPrimes) {
+  
+final int NUMBER_OF_EMIRPS = 100;   //declare 100 results will output
+  int count = 0;    // Count the number of prime numbers
+  int number = 2;   // A number to be tested for primeness
+ 
+// Repeatedly find prime numbers
+  while (count < NUMBER_OF_EMIRPS) {
+      
+// Print the prime number and increase the count 
+   if (isPrime(number) && isPrime(reverse(number))
+     && !isPalindrome(number)) {
+    count++;  // Increase the count
+    System.out.printf("%10d", number);  //Create the spacing to print
+
+   if (count % 10 == 0) {
+    System.out.println();  // Print the number and advance to the new line
+    }
+   }
+   number++;   // Check whether the next number is prime
+  }
+ 
+ }
+ 
+ /** Check whether number is prime */
+ public static boolean isPrime(int number) {
+     
+  for (int divisor = 2; divisor <= number / 2; divisor++) {  // If true, number is not prime
+      
+   if (number % divisor == 0) { 
+    return false; // If number is not a prime
+   }
+  }
+ 
+  return true; // If number is prime
+ }
+ 
+ 
+ /** Check whether number is Palindrome */
+ public static boolean isPalindrome(int number) {
+ 
+  return (number == reverse(number));
+ 
+ }
+ 
+ public static int reverse(int number) {
+  int reverse = 0;
+  int digit;
+ 
+  do {
+   digit = number % 10;
+   reverse = reverse * 10 + digit;
+   number /= 10;
+  } while (number != 0);
+ 
+  return reverse;
+ }
+}
